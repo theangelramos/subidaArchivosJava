@@ -1,6 +1,9 @@
 package com.example.subidaarchivosjava;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    Button btnsubirArchivos;
+    Button btnSeleccionar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,23 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        btnsubirArchivos = findViewById(R.id.subirButton);
+        btnSeleccionar = findViewById(R.id.seleccionarButton);
+
+        btnSeleccionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Seleccionando archivo...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnsubirArchivos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Subiendo archivo...", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
